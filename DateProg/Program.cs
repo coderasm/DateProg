@@ -10,12 +10,12 @@ namespace DateProg
   {
     static void Main(string[] args)
     {
-      // The code provided will print ‘Hello World’ to the console.
-      // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-      Console.WriteLine("Hello World!");
+      var date = new Date(31, 1, 1900);
+      var differenceInDays = date.numberOfDaysSince(1900);
+      Console.WriteLine(differenceInDays.ToString());
+      date.isLater(new Date(23, 5, 1923));
+      date.isEarlier(new Date(23, 5, 1923));
       Console.ReadKey();
-
-      // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
     }
   }
 }

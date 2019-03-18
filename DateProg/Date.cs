@@ -1,0 +1,58 @@
+﻿using System;
+
+namespace DateProg
+{
+  class Date
+  {
+    private DateTime date = DateTime.Now;
+    public Date(int day, int month, int year)
+    {
+      date = new DateTime(year, month, day);
+    }
+
+    public int numberOfDaysSince(int year)
+    {
+      var startDate = new DateTime(year, 1, 1);
+      var difference = date.Subtract(startDate);
+      return (int)difference.TotalDays;
+    }
+
+    public bool isEarlier(Date date)
+    {
+      var firstDiff = numberOfDaysSince(1900);
+      var secondDiff = date.numberOfDaysSince(1900);
+      if (secondDiff < firstDiff)
+        Console.WriteLine(date.print() + " is earlier than " + print());
+      else
+        Console.WriteLine(print() + " is earlier than " + date.print());
+      return secondDiff < firstDiff;
+    }
+
+    public bool isLater(Date date)
+    {
+      var firstDiff = numberOfDaysSince(1900);
+      var secondDiff = date.numberOfDaysSince(1900);
+      if (secondDiff > firstDiff)
+        Console.WriteLine(date.print() + " is later than " + print());
+      else
+        Console.WriteLine(print() + " is later than " + date.print());
+      return secondDiff > firstDiff;
+    }
+
+    public bool isTheSame(Date date)
+    {
+      var firstDiff = numberOfDaysSince(1900);
+      var secondDiff = date.numberOfDaysSince(1900);
+      if (secondDiff == firstDiff)
+        Console.WriteLine(date.print() + " equals " + print());
+      else
+        Console.WriteLine(print() + " does not equal " + date.print());
+      return secondDiff == firstDiff;
+    }
+
+    public string print()
+    {
+      return date.ToString("M/d/yyyy");
+    }
+  }
+}
