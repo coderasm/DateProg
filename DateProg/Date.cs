@@ -5,6 +5,12 @@ namespace DateProg
   class Date
   {
     private DateTime date = DateTime.Now;
+
+    public Date()
+    {
+
+    }
+
     public Date(int day, int month, int year)
     {
       date = new DateTime(year, month, day);
@@ -48,6 +54,48 @@ namespace DateProg
       else
         Console.WriteLine(print() + " does not equal " + date.print());
       return secondDiff == firstDiff;
+    }
+
+    public int nextDay()
+    {
+      var nextDay = date.AddDays(1).Day;
+      Console.WriteLine("Day after " + print() + ": " + nextDay);
+      return nextDay;
+    }
+
+    public int nextMonth()
+    {
+      var nextMonth = date.AddMonths(1).Month;
+      Console.WriteLine("Month after " + print() + ": " + nextMonth);
+      return nextMonth;
+    }
+
+    public int nextYear()
+    {
+      var nextYear = date.AddYears(1).Year;
+      Console.WriteLine("Year after " + print() + ": " + nextYear);
+      return nextYear;
+    }
+
+    public int prevDay()
+    {
+      var prevDay = date.AddDays(-1).Day;
+      Console.WriteLine("Day before " + print() + ": " + prevDay);
+      return prevDay;
+    }
+
+    public int prevMonth()
+    {
+      var prevMonth = date.AddMonths(-1).Month;
+      Console.WriteLine("Month before " + print() + ": " + prevMonth);
+      return prevMonth;
+    }
+
+    public int prevYear()
+    {
+      var prevYear = date.AddYears(-1).Year;
+      Console.WriteLine("Year before " + print() + ": " + prevYear);
+      return prevYear;
     }
 
     public string print()
